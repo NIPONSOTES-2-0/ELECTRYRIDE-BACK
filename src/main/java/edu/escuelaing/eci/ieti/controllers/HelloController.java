@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 	
-	@RequestMapping(value="/index.html")
+	/*@RequestMapping(value="/index.html")
     public  ResponseEntity<?>  findAllComentarios() {
         String favo = null;
         try {
@@ -17,7 +17,7 @@ public class HelloController {
             return new ResponseEntity<>("Error 404",HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(favo, HttpStatus.ACCEPTED);
-    }
+    }*/
 
 	
 }
