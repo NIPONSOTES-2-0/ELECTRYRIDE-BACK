@@ -17,14 +17,9 @@
 	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
-		<sonar.projectKey>NIPONSOTES-2-0_ELECTRYRIDE-BACK</sonar.projectKey>
-  		<sonar.organization>niponsotes-2-0</sonar.organization>
-  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  		<jacoco.version>0.8.3</jacoco.version>
-  		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
-		<sonar.language>java</sonar.language>
+	 	<sonar.projectKey>NIPONSOTES-2-0_ELECTRYRIDE-BACK</sonar.projectKey>
+ 		<sonar.organization>niponsotes-2-0</sonar.organization>
+	  	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
