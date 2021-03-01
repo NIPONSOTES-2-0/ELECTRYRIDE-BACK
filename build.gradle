@@ -23,7 +23,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
-	compile 'org.mongodb:mongodb-driver:3.3.0'
 	
 }
 sonarqube {
@@ -35,7 +34,7 @@ sonarqube {
   }
 }
 ext {
-    jacocoExclusions = ['**/*edu/escuelaing/eci/ieti/ElectryrideBack2Application.java','**/*edu/escuelaing/eci/ieti/controllers/** ']
+    jacocoExclusions = ['**/*edu/escuelaing/eci/ieti/ElectryrideBack2Application.java','**/*edu/escuelaing/eci/ieti/controllers/** ','**/*edu/escuelaing/eci/ieti/repository/** ','**/*edu/escuelaing/eci/ieti/services/** ']
 }
 
 test {

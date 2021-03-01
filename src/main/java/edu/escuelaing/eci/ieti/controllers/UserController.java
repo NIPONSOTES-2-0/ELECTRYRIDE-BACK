@@ -29,7 +29,7 @@ public class UserController {
             return null;
         }
     }
-    @RequestMapping(value="/user", method = RequestMethod.POST)
+    /*@RequestMapping(value="/user", method = RequestMethod.POST)
     public ResponseEntity<Object> saveUser(@RequestBody User user) {
         try {
             userS.save(user);
@@ -37,7 +37,7 @@ public class UserController {
             return new ResponseEntity<>("Error 404", HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>( HttpStatus.ACCEPTED);
-    }
+    }*/
 
 
 }
