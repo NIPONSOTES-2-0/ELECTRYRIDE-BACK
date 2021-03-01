@@ -1,0 +1,45 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id "org.sonarqube" version "3.1.1"
+	id 'application'
+    id 'jacoco'
+}
+
+group = 'edu.escuelaing.eci.ieti'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+}
+sonarqube {
+  properties {
+    property "sonar.projectKey", "NIPONSOTES-2-0_ELECTRYRIDE-BACK"
+    property "sonar.organization", "niponsotes-2-0"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
+
+
+jacocoTestReport {
+    afterEvaluate {
+	getClassDirectories().setFrom(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['**/ieti/RentopolisApplication**',
+					                    '**/ieti/controllers**'])
+        })
+    }
+}
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
