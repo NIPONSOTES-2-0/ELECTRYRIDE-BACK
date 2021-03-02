@@ -32,11 +32,12 @@ sonarqube {
     property "sonar.organization", "niponsotes-2-0"
     property "sonar.host.url", "https://sonarcloud.io"
     property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
+    property 'sonar.coverage.exclusions', jacocoExclusions 
      
   }
 }
 ext {
-    jacocoExclusions = ['**/*edu/escuelaing/eci/ieti/ElectryrideBack2Application.java','**/*edu/escuelaing/eci/ieti/controllers/** ','**/*edu/escuelaing/eci/ieti/repository/** ','**/*edu/escuelaing/eci/ieti/services/** ','**/*edu/escuelaing/eci/ieti/models/** ']
+    jacocoExclusions = ['**/*edu/escuelaing/eci/ieti/ElectryrideBack2Application.java','**/*edu/escuelaing/eci/ieti/controllers/** ','**/*edu/escuelaing/eci/ieti/models/** ']
 }
 
 test {
