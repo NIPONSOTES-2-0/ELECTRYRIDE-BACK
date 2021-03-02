@@ -23,6 +23,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
+	testCompile 'junit:junit:4.12'
 	
 }
 sonarqube {
@@ -30,7 +31,8 @@ sonarqube {
     property "sonar.projectKey", "NIPONSOTES-2-0_ELECTRYRIDE-BACK"
     property "sonar.organization", "niponsotes-2-0"
     property "sonar.host.url", "https://sonarcloud.io"
-    property 'sonar.coverage.exclusions', jacocoExclusions 
+    property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
+     
   }
 }
 ext {
