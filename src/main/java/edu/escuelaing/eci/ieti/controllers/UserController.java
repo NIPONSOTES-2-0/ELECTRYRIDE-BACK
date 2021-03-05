@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins="http://localhost:3000")
+@RequestMapping("/api/usuarios")
 public class UserController {
 
     @Autowired
     UserServices userS;
 
-    @RequestMapping(value="/user" ,method = RequestMethod.GET)
+    @RequestMapping(value="/users" ,method = RequestMethod.GET)
     public ResponseEntity<List<User>> getUsers() {
         List<User> users = null;
         try {
@@ -28,15 +30,18 @@ public class UserController {
             return null;
         }
     }
-    /*@RequestMapping(value="/user", method = RequestMethod.POST)
+
+
+    @RequestMapping(value="/register", method = RequestMethod.POST)
     public ResponseEntity<Object> saveUser(@RequestBody User user) {
         try {
+            System.out.println("\n Entra en post de user: "+ user + "\n ");
             userS.save(user);
         } catch (Exception ex) {
             return new ResponseEntity<>("Error 404", HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>( HttpStatus.ACCEPTED);
-    }*/
+    }
 
 
 }
