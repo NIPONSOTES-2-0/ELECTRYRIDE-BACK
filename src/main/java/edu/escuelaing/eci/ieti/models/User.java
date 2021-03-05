@@ -5,16 +5,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "user")
 public class User {
+
+
     @Id
     private String id;
-    private String nombre;
-    private String universidad;
+    private String name;
+    private String lastname;
+    private String email;
+    private String password;
 
     public User(){}
-    public User(String ID, String nombre, String universidad) {
+    public User(String ID, String name, String lastname, String email, String password) {
         this.id = ID;
-        this.nombre = nombre;
-        this.universidad = universidad;
+        this.name = name;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
     }
 
     public String getId() {
@@ -25,27 +31,47 @@ public class User {
         this.id = ID;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUniversidad() {
-        return universidad;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setUniversidad(String universidad) {
-        this.universidad = universidad;
+    public void setUniversidad(String lastname) {
+        this.lastname = lastname;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "ID=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", universidad='" + universidad + '\'' +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
