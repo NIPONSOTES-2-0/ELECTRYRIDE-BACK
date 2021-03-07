@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     UserServices userS;
 
-    @RequestMapping(value="/users" ,method = RequestMethod.GET)
+    @RequestMapping(value="/" ,method = RequestMethod.GET)
     public ResponseEntity<List<User>> getUsers() {
         List<User> users = null;
         try {
