@@ -37,7 +37,7 @@ sonarqube {
   }
 }
 ext {
-    jacocoExclusions = ['**/*edu/escuelaing/eci/ieti/ElectryrideBack2Application.java','**/*edu/escuelaing/eci/ieti/controllers/** ','**/*edu/escuelaing/eci/ieti/models/**','**/*edu/escuelaing/eci/ieti/repository/**','**/*edu/escuelaing/eci/ieti/services/**']
+    jacocoExclusions = ['**/*edu/escuelaing/eci/ieti/ElectryrideBack2Application.java'] //,'**/*edu/escuelaing/eci/ieti/controllers/** ','**/*edu/escuelaing/eci/ieti/models/**','**/*edu/escuelaing/eci/ieti/repository/**','**/*edu/escuelaing/eci/ieti/services/**'
 }
 
 test {
