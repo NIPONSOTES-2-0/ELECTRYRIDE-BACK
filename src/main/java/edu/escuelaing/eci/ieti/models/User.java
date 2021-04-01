@@ -43,8 +43,8 @@ public class User {
         return lastname;
     }
 
-    public void setUniversidad(String lastname) {
-        this.lastname = lastname;
+    public void setLastname(String last) {
+         this.lastname=last;
     }
 
     public String getEmail() {

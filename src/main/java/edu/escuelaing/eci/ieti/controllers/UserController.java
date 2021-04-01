@@ -11,31 +11,37 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins="http://localhost:3000")
-@RequestMapping("/api/usuarios")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     UserServices userS;
 
-    @RequestMapping(value="/users" ,method = RequestMethod.GET)
+    @RequestMapping(value="/" ,method = RequestMethod.GET)
     public ResponseEntity<List<User>> getUsers() {
         List<User> users = null;
         try {
             users = userS.getUsers();
-            for(User u : users){
-                System.out.print(u.toString());
-            }
             return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            return null;
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
+    @RequestMapping(path="/{email}" ,method = RequestMethod.GET)
+    public ResponseEntity<User> getUsersbyEmail(@PathVariable String email) {
+        User users = null;
+        try {
+            users = userS.getUserbyEmail(email);
+            return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
     @RequestMapping(value="/register", method = RequestMethod.POST)
     public ResponseEntity<Object> saveUser(@RequestBody User user) {
         try {
-            System.out.println("\n Entra en post de user: "+ user + "\n ");
             userS.save(user);
         } catch (Exception ex) {
             return new ResponseEntity<>("Error 404", HttpStatus.NOT_FOUND);
@@ -43,5 +49,24 @@ public class UserController {
         return new ResponseEntity<>( HttpStatus.ACCEPTED);
     }
 
+    @RequestMapping(value="/{email}", method = RequestMethod.PUT)
+    public ResponseEntity<Object> updateUser(@RequestBody User user, @PathVariable String email) {
+        try {
+            userS.update(user,email);
+        } catch (Exception ex) {
+            return new ResponseEntity<>("Error 404", HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>( HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(value="/{email}", method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteUser(@PathVariable String email) {
+        try {
+            userS.deleteUser(email);
+        } catch (Exception ex) {
+            return new ResponseEntity<>("Error 404", HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>( HttpStatus.ACCEPTED);
+    }
 
 }
