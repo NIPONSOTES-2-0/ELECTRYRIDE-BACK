@@ -19,7 +19,25 @@ public class UserServicesImpl implements UserServices {
     }
 
     @Override
+    public void update(User user, String email) {
+        User _user = getUserbyEmail(email);
+        userR.delete(_user);
+        userR.save(user);
+    }
+
+    @Override
     public List<User> getUsers() {
         return userR.findAll();
     }
+
+    @Override
+	public User getUserbyEmail(String email) {
+		return userR.findByEmail(email);
+	}
+
+    @Override
+	public void deleteUser(String email) {
+    	User _user= userR.findByEmail(email);
+        userR.delete(_user);
+	}
 }
