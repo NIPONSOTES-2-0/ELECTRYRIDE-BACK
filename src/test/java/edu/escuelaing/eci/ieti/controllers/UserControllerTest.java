@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.ResponseEntity;
@@ -84,35 +85,6 @@ public class UserControllerTest {
 
     @Test
     void getUsers() {
-        /*List<User> list = new ArrayList<User>();
-        User user1 = new User();
-        user1.setEmail("quantum@gmail.com");
-        user1.setName("jordi");
-        user1.setLastname("wild");
-        user1.setPassword("Hola123");
-
-        User user2 = new User();
-        user1.setEmail("javi@gmail.com");
-        user1.setName("Javi");
-        user1.setLastname("SantaOlalla");
-        user1.setPassword("Hola123");
-
-        User user3 = new User();
-        user1.setEmail("crespo@gmail.com");
-        user1.setName("crespo");
-        user1.setLastname("Fracture");
-        user1.setPassword("Hola123");
-        list.add(user1);
-        list.add(user2);
-        list.add(user3);
-
-        Mockito.when(userC.getUsers()).thenReturn((ResponseEntity<List<User>>) list);
-        System.out.println(list);
-        //test
-        ResponseEntity<List<User>> respuestaServicio = userC.getUsers();
-        int size = respuestaServicio.getBody().size();
-        Assertions.assertEquals(respuestaServicio.getBody().size(), respuestaServicio.getBody().size());
-        verify(dao, times(1)).getEmployeeList();*/
         ResponseEntity<List<User>> respuestaServicio;
         respuestaServicio = userC.getUsers();
         int size = respuestaServicio.getBody().size();

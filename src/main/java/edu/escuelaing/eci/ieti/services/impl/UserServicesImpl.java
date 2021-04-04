@@ -3,6 +3,7 @@ package edu.escuelaing.eci.ieti.services.impl;
 import edu.escuelaing.eci.ieti.models.User;
 import edu.escuelaing.eci.ieti.repository.UserRepository;
 import edu.escuelaing.eci.ieti.services.UserServices;
+import org.jasypt.util.password.PasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,11 +11,16 @@ import java.util.List;
 
 @Component
 public class UserServicesImpl implements UserServices {
+
     @Autowired
     UserRepository userR;
 
+    @Autowired
+    private PasswordEncryptor passwordEncryptor;
+
     @Override
     public void save(User user) {
+        user.setPassword(passwordEncryptor.encryptPassword(user.getPassword()));
         userR.insert(user);
     }
 
