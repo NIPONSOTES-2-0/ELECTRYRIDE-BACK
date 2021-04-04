@@ -1,6 +1,4 @@
-package edu.escuelaing.eci.ieti.util;
-
-import edu.escuelaing.eci.ieti.models.User;
+package edu.escuelaing.eci.ieti.models;
 
 public class Token {
 

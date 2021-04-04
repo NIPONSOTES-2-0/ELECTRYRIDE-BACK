@@ -2,7 +2,7 @@ package edu.escuelaing.eci.ieti.controllers;
 
 import edu.escuelaing.eci.ieti.models.User;
 import edu.escuelaing.eci.ieti.services.UserServices;
-import edu.escuelaing.eci.ieti.util.Token;
+import edu.escuelaing.eci.ieti.models.Token;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.jasypt.util.password.PasswordEncryptor;
