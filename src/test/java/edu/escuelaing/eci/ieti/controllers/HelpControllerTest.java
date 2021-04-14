@@ -39,6 +39,7 @@ public class HelpControllerTest {
     @Test
     void getHelpSaved(){
         Help help = new Help();
+        help.setId("824");
         help.setEmail("test@hotmail.com");
         help.setName("new test");
         help.setThelp("queja");
