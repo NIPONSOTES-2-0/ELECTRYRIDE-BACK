@@ -28,14 +28,14 @@ public class JwtFilter extends GenericFilterBean {
 
             filterChain.doFilter(servletRequest, response);
         } else {
-            System.out.println("TOKEN JWT: "+authHeader);
+            //System.out.println("TOKEN JWT: "+authHeader);
             if (authHeader == null || !authHeader.startsWith("Bearer ")) {
                 throw new ServletException("Missing or invalid Authorization header");
             }
 
             //final String token = authHeader.substring(7);
             String token = authHeader.substring(8, authHeader.length()-1);
-            System.out.println("TOKEN SUBSTRING 7: "+token);
+            //System.out.println("TOKEN SUBSTRING 7: "+token);
             try
             {
                 final Claims claims = Jwts.parser().setSigningKey( "secretkey" ).parseClaimsJws( token ).getBody();
