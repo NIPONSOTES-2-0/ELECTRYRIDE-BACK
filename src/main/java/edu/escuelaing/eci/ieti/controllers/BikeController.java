@@ -20,6 +20,7 @@ public class BikeController {
 
     @RequestMapping(value="/", method = RequestMethod.GET)
     public ResponseEntity<List<Bike>> getBikes(){
+        System.out.println("Retornando bikes: "+bikeS.getBikes());
         return new ResponseEntity<>(bikeS.getBikes(), HttpStatus.ACCEPTED);
     }
 

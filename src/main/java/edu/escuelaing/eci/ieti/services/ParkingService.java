@@ -12,4 +12,6 @@ public interface ParkingService {
 
     void rentedBike(String id);
 
+    Parking findParkingBydId(String id);
+
 }

@@ -40,12 +40,13 @@ public class ParkingServiceImpl implements ParkingService{
         }
     }
 
+    @Override
     public Parking findParkingBydId(String id){
 
-        Optional<Parking> optionalParking =parkingRepository.findById(id);
+        Optional<Parking> optionalParking = parkingRepository.findById(id);
         System.out.println("\n Parking OPTIONAL: "+optionalParking+" \n");
-        Parking parking=null;
-        if(!optionalParking.isEmpty()){
+        Parking parking=null;        
+        if(!optionalParking.isEmpty()){        
             parking = optionalParking.get();
         }
         return parking;
