@@ -81,12 +81,12 @@ public class UserController {
     }
 
     @RequestMapping(value="/", method = RequestMethod.PUT)
-    public ResponseEntity<?> updateUser(@RequestBody User user) {
+    public ResponseEntity<User> updateUser(@RequestBody User user) {
         User _user = null;
         try {
              _user = userS.update(user);
         } catch (Exception ex) {
-            return new ResponseEntity<>("Error 404", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(_user, HttpStatus.ACCEPTED);
     }
