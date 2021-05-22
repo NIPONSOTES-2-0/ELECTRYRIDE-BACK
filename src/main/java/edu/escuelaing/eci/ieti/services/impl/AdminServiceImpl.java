@@ -6,8 +6,6 @@ import edu.escuelaing.eci.ieti.repository.ParkingRepository;
 import edu.escuelaing.eci.ieti.repository.ReportRepository;
 import edu.escuelaing.eci.ieti.services.AdminService;
 import edu.escuelaing.eci.ieti.services.ParkingService;
-import edu.escuelaing.eci.ieti.services.ReportServices;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +22,6 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Report> getReports() {
-        System.out.println("\n Getting reports admin\n");
         List<Report> reports = reportRepository.findAll();
         return reports;
     }
@@ -32,7 +29,6 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Parking> getParkings() {
-        System.out.println("\n Getting parkings admin \n");
         List<Parking> parkings = parkingRepository.findAll();
         return parkings;
     }

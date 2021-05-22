@@ -26,10 +26,8 @@ public class AdminController {
 
     @Autowired
     public AdminController(AdminService adminService, ReportServices reportService){
-        System.out.println("ENTRANDO EN ADMIN CONTROLLER CONSTRUCTOR: "+adminService);
         this.adminService = adminService;
         this.reportService = reportService;
-        System.out.println("ENTRANDO EN ADMIN CONTROLLER This.adminService: "+this.adminService);
     }
 
 
@@ -47,7 +45,6 @@ public class AdminController {
     @GetMapping("/parkings")
     public ResponseEntity<List<Parking>> getParkings(){
         try{
-            System.out.println("\n Entrando en controller ADMIN parkings \n");
             return new ResponseEntity<>(adminService.getParkings(), HttpStatus.ACCEPTED);
         }catch(Exception e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -58,7 +55,6 @@ public class AdminController {
     @GetMapping("/reports")
     public ResponseEntity<List<Report>> getReports(){
         try{
-            System.out.println("\n Entrando en controller ADMIN reports \n");
             return new ResponseEntity<>(reportService.getReport(), HttpStatus.ACCEPTED);
         }catch(Exception e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
