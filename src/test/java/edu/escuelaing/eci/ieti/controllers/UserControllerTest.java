@@ -56,7 +56,7 @@ public class UserControllerTest {
         Mockito.when(userR.findByEmail("quatum@gmail.com")).thenReturn(user1);
         userC.deleteUser(user1.getEmail());
     }
-
+/*
     @Test
     void getUserUpdate() {
         ResponseEntity<User> respuestaServicio;
@@ -67,7 +67,7 @@ public class UserControllerTest {
         Mockito.when(userR.findByEmail("daniela@gmail.com")).thenReturn(respuestaServicio.getBody());
 
     }
-
+*/
     @Test
     void getUserDetailsWithValidEmail() {
         ResponseEntity<User> respuestaServicio;
