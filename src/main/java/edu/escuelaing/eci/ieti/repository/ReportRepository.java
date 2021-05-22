@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ReportRepository extends MongoRepository<Report, String>{
     Optional<Report> findById(String id);
+
+
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @Component
 public class UserServicesImpl implements UserServices {
@@ -24,11 +25,28 @@ public class UserServicesImpl implements UserServices {
         userR.insert(user);
     }
 
+
     @Override
-    public void update(User user, String email) {
-        User _user = getUserbyEmail(email);
-        userR.delete(_user);
-        userR.save(user);
+    public User update(User user) {
+        Logger logger
+                = Logger.getLogger(UserServicesImpl.class.getName());
+        // Call info method
+        User _user = getUserbyEmail(user.getEmail());
+        logger.info("uno");
+        logger.info(_user.toString());
+        _user.setName(user.getName());
+        _user.setLastname(user.getLastname());
+        _user.setPassword(passwordEncryptor.encryptPassword(_user.getPassword()));
+        logger.info("dos");
+        logger.info(_user.toString());
+        userR.save(_user);
+        return _user;
+        //deleteUser(email);
+        //save(user);
+        //_user.setName(user.getName());
+        //_user.setLastname(user.getLastname());
+        //_user.setPassword(passwordEncryptor.encryptPassword(user.getPassword()));
+        //userR.insert(_user);
     }
 
     @Override

@@ -35,6 +35,7 @@ public class ReportController {
 
     @RequestMapping(value="/", method = RequestMethod.POST)
     public ResponseEntity<Object> addReport(@RequestBody Report report) {
+        System.out.println("\n Reporte nuevo: "+report);
         reportS.saveReport(report);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
