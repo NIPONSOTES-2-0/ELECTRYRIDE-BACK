@@ -63,7 +63,7 @@ public class UserControllerTest {
         respuestaServicio = userC.getUsersbyEmail("daniela@gmail.com");
         respuestaServicio.getBody().setName("jaime");
         respuestaServicio.getBody().setLastname("altozano");
-        userC.updateUser(respuestaServicio.getBody(),"daniela@gmail.com");
+        userC.updateUser(respuestaServicio.getBody());
         Mockito.when(userR.findByEmail("daniela@gmail.com")).thenReturn(respuestaServicio.getBody());
 
     }

@@ -1,22 +1,35 @@
 package edu.escuelaing.eci.ieti.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 
 @Document(collection = "report")
 public class Report {
     @Id
     private String id;
+    private String name;
     private String trep;
     private String desc;
     private String email;
 
     public Report(){}
-    public Report(String id, String trep, String desc, String email){
+    public Report(String id, String name, String trep, String desc, String email){
         this.id = id;
         this.trep = trep;
         this.desc = desc;
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getId(){
@@ -53,8 +66,9 @@ public class Report {
 
     @Override
     public String toString() {
-        return "Reporte{" +
-                "ID=" + id +
+        return "Report{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", trep='" + trep + '\'' +
                 ", desc='" + desc + '\'' +
                 ", email='" + email + '\'' +

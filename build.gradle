@@ -31,6 +31,7 @@ dependencies {
 	testImplementation 'io.projectreactor:reactor-test'
 	testCompile 'junit:junit:4.12'
 	compile group: 'org.jasypt', name: 'jasypt', version: '1.9.2'
+	compileOnly 'org.projectlombok:lombok'
 	
 }
 sonarqube {

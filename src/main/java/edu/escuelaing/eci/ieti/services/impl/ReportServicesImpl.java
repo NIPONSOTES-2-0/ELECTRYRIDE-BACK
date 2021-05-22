@@ -16,7 +16,9 @@ public class ReportServicesImpl implements ReportServices {
 
     @Override 
     public void saveReport(Report report){
+        System.out.println("\n Va a guardar el reporte: "+report+" \n");
         reportR.save(report);
+        System.out.println("\n GUARDÓ EL REPORTE: "+report+" \n");
     }
 
     @Override

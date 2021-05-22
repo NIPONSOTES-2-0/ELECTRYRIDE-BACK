@@ -80,14 +80,15 @@ public class UserController {
         return new ResponseEntity<>( HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/{email}", method = RequestMethod.PUT)
-    public ResponseEntity<Object> updateUser(@RequestBody User user, @PathVariable String email) {
+    @RequestMapping(value="/", method = RequestMethod.PUT)
+    public ResponseEntity<Object> updateUser(@RequestBody User user) {
+        User _user = null;
         try {
-            userS.update(user,email);
+             _user = userS.update(user);
         } catch (Exception ex) {
             return new ResponseEntity<>("Error 404", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>( HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(_user, HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value="/{email}", method = RequestMethod.DELETE)
