@@ -81,7 +81,7 @@ public class UserController {
     }
 
     @RequestMapping(value="/", method = RequestMethod.PUT)
-    public ResponseEntity<User> updateUser(@RequestBody User user) {
+    public ResponseEntity<?> updateUser(@RequestBody User user) {
         User _user = null;
         try {
              _user = userS.update(user);
